@@ -29,13 +29,13 @@ VORTEX APEX is engineered as a **100% standalone, zero-dependency payload**. You
 
 ### 🔹 PowerShell (Run as Administrator)
 ```powershell
-irm https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApekAC.ps1 | iex
+irm https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApexAC.ps1 | iex
 ```
-*(Short alias: `iwr -useb https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApekAC.ps1 | iex`)*
+*(Short alias: `iwr -useb https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApexAC.ps1 | iex`)*
 
 ### 🔹 Command Prompt / CMD (Run as Administrator)
 ```cmd
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApekAC.ps1 | iex"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApexAC.ps1 | iex"
 ```
 
 > ⚠️ **Privilege Requirement**: Administrator privileges are strictly enforced. The engine uses kernel-level queries, unencrypted physical memory descriptors, NTFS USN journals, and privileged event subtrees.
@@ -147,7 +147,7 @@ Upon scan completion, VORTEX APEX generates a standalone, cyberpunk-themed HTML 
 When executing locally or embedding into custom inspection pipelines:
 
 ```powershell
-.\VortexApekAC.ps1 [-TargetFolder <Path>] [-FullScan] [-NoHtmlReport] [-DiscordWebhook <URL>]
+.\VortexApexAC.ps1 [-TargetFolder <Path>] [-FullScan] [-NoHtmlReport] [-DiscordWebhook <URL>]
 ```
 
 | Parameter | Type | Description |
