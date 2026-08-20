@@ -25,29 +25,34 @@ param(
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
 if (-not $isAdmin) {
-    if ($MyInvocation.MyCommand.Path) {
-        try {
+    Write-Host "`n [*] Yonetici (Administrator) izni gerekiyor, yetki yukseltiliyor..." -ForegroundColor Cyan
+    try {
+        if ($MyInvocation.MyCommand.Path) {
             $argList = "-NoExit -NoProfile -ExecutionPolicy Bypass -File `"$($MyInvocation.MyCommand.Path)`""
             if ($TargetFolder) { $argList += " -TargetFolder `"$TargetFolder`"" }
             if ($FullScan) { $argList += " -FullScan" }
             if ($NoHtmlReport) { $argList += " -NoHtmlReport" }
             if ($DiscordWebhook) { $argList += " -DiscordWebhook `"$DiscordWebhook`"" }
             
-            $p = Start-Process powershell.exe -ArgumentList $argList -Verb RunAs -PassThru -ErrorAction Stop
-            exit
-        } catch {
-            Write-Host "`n [!] CRITICAL ERROR: Administrator privileges are strictly required." -ForegroundColor Red
-            Write-Host " [!] Please right click and select 'Run as Administrator'." -ForegroundColor Yellow
-            Start-Sleep -Seconds 3
-            exit 1
+            Start-Process powershell.exe -ArgumentList $argList -Verb RunAs -ErrorAction Stop
+            return
+        } else {
+            # In-memory execution (irm | iex)
+            $remoteCmd = "irm https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApekAC.ps1 | iex"
+            Start-Process powershell.exe -ArgumentList "-NoExit -NoProfile -ExecutionPolicy Bypass -Command `"$remoteCmd`"" -Verb RunAs -ErrorAction Stop
+            return
         }
-    } else {
-        Write-Host "`n [!] CRITICAL ERROR: Administrator privileges are strictly required." -ForegroundColor Red
-        Write-Host " [!] Lutfen PowerShell veya CMD'yi 'Yonetici Olarak Calistir' (Run as Administrator) ile acip tekrar yapistirin." -ForegroundColor Yellow
+    } catch {
+        Write-Host "`n [!] KRITIK HATA: Yonetici (Administrator) yetkileri zorunludur." -ForegroundColor Red
+        Write-Host " [!] Windows UAC izni verilmedi veya yetki yukseltme basarisiz oldu." -ForegroundColor Yellow
+        Write-Host " [!] Lutfen PowerShell veya CMD'yi 'Yonetici Olarak Calistir' ile acin." -ForegroundColor Yellow
         Write-Host " [!] Coded By BayrdY" -ForegroundColor Cyan
-        exit 1
+        Write-Host "`n Kapatmak icin Enter tusuna basin..." -ForegroundColor Gray
+        $null = Read-Host
+        return
     }
 }
+
 
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force -ErrorAction SilentlyContinue
 
