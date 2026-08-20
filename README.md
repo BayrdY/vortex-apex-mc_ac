@@ -18,7 +18,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011%20%28x64%29-0078D6.svg?style=flat-square&logo=windows)](https://microsoft.com/windows)
 [![Architecture](https://img.shields.io/badge/Architecture-C%23%20P%2FInvoke%20%2B%20CLR%20In--Memory-4EBA0F.svg?style=flat-square)](https://dotnet.microsoft.com)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg?style=flat-square)]()
-[![Developer](https://img.shields.io/badge/Developer-BayrdY-FF0055.svg?style=flat-square)]()
+[![GitHub Repo](https://img.shields.io/badge/GitHub-BayrdY%2Fvortex--apex--mc__ac-181717.svg?style=flat-square&logo=github)](https://github.com/BayrdY/vortex-apex-mc_ac)
+[![Developer](https://img.shields.io/badge/Developer-BayrdY-FF0055.svg?style=flat-square)](https://github.com/BayrdY)
 
 ---
 
@@ -28,13 +29,13 @@ VORTEX APEX is engineered as a **100% standalone, zero-dependency payload**. You
 
 ### 🔹 PowerShell (Run as Administrator)
 ```powershell
-irm https://raw.githubusercontent.com/USERNAME/REPO_NAME/main/UltimateAntiCheat.ps1 | iex
+irm https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApekAC.ps1 | iex
 ```
-*(Short alias: `iwr -useb https://raw.githubusercontent.com/USERNAME/REPO_NAME/main/UltimateAntiCheat.ps1 | iex`)*
+*(Short alias: `iwr -useb https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApekAC.ps1 | iex`)*
 
 ### 🔹 Command Prompt / CMD (Run as Administrator)
 ```cmd
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/USERNAME/REPO_NAME/main/UltimateAntiCheat.ps1 | iex"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/BayrdY/vortex-apex-mc_ac/main/VortexApekAC.ps1 | iex"
 ```
 
 > ⚠️ **Privilege Requirement**: Administrator privileges are strictly enforced. The engine uses kernel-level queries, unencrypted physical memory descriptors, NTFS USN journals, and privileged event subtrees.
@@ -146,7 +147,7 @@ Upon scan completion, VORTEX APEX generates a standalone, cyberpunk-themed HTML 
 When executing locally or embedding into custom inspection pipelines:
 
 ```powershell
-.\UltimateAntiCheat.ps1 [-TargetFolder <Path>] [-FullScan] [-NoHtmlReport] [-DiscordWebhook <URL>]
+.\VortexApekAC.ps1 [-TargetFolder <Path>] [-FullScan] [-NoHtmlReport] [-DiscordWebhook <URL>]
 ```
 
 | Parameter | Type | Description |
@@ -169,7 +170,8 @@ VORTEX APEX employs multi-tiered anti-tamper safeguards:
 
 ## 👤 Author & Credits
 
-- **System Architect & Lead Developer**: **BayrdY**
+- **System Architect & Lead Developer**: **[BayrdY](https://github.com/BayrdY)**
+- **Repository**: **[vortex-apex-mc_ac](https://github.com/BayrdY/vortex-apex-mc_ac)**
 - **Engine**: VORTEX Core Engine (VORTEX-AC 2026)
 - **License**: Proprietary / Esports Forensic License — Designed for competitive integrity.
 
